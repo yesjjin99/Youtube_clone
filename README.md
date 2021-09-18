@@ -82,3 +82,38 @@
 👉🏻 MongoDB에서 비디오 데이터 가져오기
 👉🏻 가져온 데이터들을 스크린에 출력
 ```
+
+## 8. 디테일 비디오 페이지에 Side 비디오 생성
+
+```
+👉🏻 Side Video 부분 Layout template 만들기
+👉🏻 한 개의 카드 template 만들기
+👉🏻 DB에서 모든 비디오 데이터를 불러오기
+👉🏻 불러온 데이터 화면에 출력하기
+```
+
+## 9. 구독 기능
+
+```
+👉🏻 Subscriber Model 만들기
+   (userTo, userFrom)
+👉🏻 Subscribe Button UI 만들기
+👉🏻 DB에서 얼마나 많은 사람이 해당 유저를 구독하는지 정보 가져오기
+👉🏻 내가 해당 비디오를 업로드한 유저를 구독하는지 정보 가져오기
+   (ex. Subscribe / Subscribed) 
+👉🏻 가져온 정보들 화면에 출력
+
+
+👉🏻 구독하기 기능 만들기
+👉🏻 구독 취소하기 기능 만들기
+```
+
+## 10. Subscription Page
+
+```
+👉🏻 빈 Subscription 페이지 생성
+👉🏻 Subscription Page를 위한 Route 만들기
+👉🏻 Template 만들기
+👉🏻 내가 구독한 유저의 비디오들만 서버에서 가져오기
+👉🏻 가져온 비디오 데이터들을 화면에 출력하기
+```

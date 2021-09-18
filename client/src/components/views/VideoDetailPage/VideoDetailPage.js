@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Col, List, Avatar } from 'antd'
 import Axios from 'axios'
+import SideVideo from './Sections/SideVideo'
+import Subscribe from './Sections/Subscribe'
 
 function VideoDetailPage(props) {
 
@@ -30,7 +32,7 @@ function VideoDetailPage(props) {
                         <video style={{ width: '100%' }} src={`http://localhost:5000/${VideoDetail.filePath}`} controls />
     
                         <List.Item
-                            actions
+                            actions={[<Subscribe userTo={VideoDetail.writer._id} userFrom={localStorage.getItem('userId')} />]} // props으로 넘겨줌
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={VideoDetail.writer.image} />}
@@ -45,7 +47,10 @@ function VideoDetailPage(props) {
                     </div>
                 </Col>
                 <Col lg={6} xs={24} >
-                    Side Videos
+                    
+                    <SideVideo /> 
+                    {/* SideVideo component(위에서 import) */}
+
                 </Col>
             </Row>
         )
