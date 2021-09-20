@@ -117,3 +117,12 @@
 👉🏻 내가 구독한 유저의 비디오들만 서버에서 가져오기
 👉🏻 가져온 비디오 데이터들을 화면에 출력하기
 ```
+
+## 11. 댓글 부분 구조 설명
+
+```
+👉🏻 댓글 부분 구조 설명
+👉🏻 Comment model 생성
+   (writer, postId, responseTo, content)
+👉🏻 디테일 비디오 페이지에 Comment Component 만들기
+```
