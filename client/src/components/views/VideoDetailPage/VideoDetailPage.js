@@ -5,7 +5,7 @@ import SideVideo from './Sections/SideVideo'
 import Subscribe from './Sections/Subscribe'
 import Comment from './Sections/Comment'
 
-function VideoDetailPage(props) {
+function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function 괄호 안에 props 넣어줘야 함
 
     const videoId = props.match.params.videoId
     const variable = { videoId: videoId }
@@ -29,6 +29,7 @@ function VideoDetailPage(props) {
 
         const subscribeButton = VideoDetail.writer._id !== localStorage.getItem('userId') && <Subscribe userTo={VideoDetail.writer._id} userFrom={localStorage.getItem('userId')} />
         // userTo 랑 userFrom 이 다르면 subscribeButton 이 나오도록 (내 계정은 구독 못하도록)
+        // Subscribe -> userTo => props 넘겨줌
 
         return (
             <Row gutter={[16, 16]}>
@@ -48,7 +49,7 @@ function VideoDetailPage(props) {
                         </List.Item>
     
                         {/* Comments */}
-                        <Comment />
+                        <Comment postId={videoId} />
     
                     </div>
                 </Col>
