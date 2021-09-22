@@ -118,7 +118,9 @@
 👉🏻 가져온 비디오 데이터들을 화면에 출력하기
 ```
 
-## 11. 댓글 부분 구조 설명
+## 11. Make the Comment
+
+### (1) System
 
 ```
 👉🏻 댓글 부분 구조 설명
@@ -126,3 +128,28 @@
    (writer, postId, responseTo, content)
 👉🏻 디테일 비디오 페이지에 Comment Component 만들기
 ```
+```
+Comment.js
+👉🏻 Comment Lists (SingleComment.js + ReplyComment.js)
+   👉🏻 Single Comment 
+      (User Info, Content, Comment Form, Actions-likes&dislikes&reply to)
+      👉🏻 Reply Comment
+         <singleComment />
+         <ReplyComment />
+         -> For more Depth!!
+👉🏻 Root Comment Form
+```
+
+### (2) Comment.js
+
+```
+👉🏻 Comment.js를 위한 template 만들기
+👉🏻 handleChange func 만들기
+👉🏻 onSubmit func 만들기
+👉🏻 저장된 댓글 데이터를 Parent Component로 업데이트
+```
+```
+SingleComment.js (Props.refreshFunction)
+👉🏻 Comment.js (props.refreshFunction)
+👉🏻 DetailVideoPage.js (loadComments)
+``` 
