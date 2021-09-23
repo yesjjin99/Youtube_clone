@@ -16,6 +16,7 @@ function Comment(props) {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        // 원래 onSubmit의 기본동작은 Submit 버튼 누르면 reloading 되는 것인데, 아무것도 입력 안했을 때에는 reloading 안되도록 preventDefault 해줌
 
         const variables = {
             content: commentValue,
@@ -29,6 +30,8 @@ function Comment(props) {
             .then(response => {
                 if(response.data.success) {
                     console.log(response.data.result)
+                    setcommentValue("")
+                    props.refreshFunction(response.data.result)
                 } else {
                     alert('댓글을 저장하지 못했습니다.')
                 }
@@ -43,7 +46,12 @@ function Comment(props) {
 
             {/* Coment Lists */}
 
-            <SingleComment />
+            {props.commentLists && props.commentLists.map((comment, index) => (
+                (!comment.responseTo && 
+                    <SingleComment comment={comment} postId={videoId} refreshFunction={props.refreshFunction} />
+                ) // 첫 번째 depth (댓글로 쓰인 게 아닌 것들)
+
+            ))}
 
 
             {/* Root Comment Form */}

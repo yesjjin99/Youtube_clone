@@ -11,6 +11,7 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
     const variable = { videoId: videoId }
 
     const [VideoDetail, setVideoDetail] = useState([])
+    const [Comments, setComments] = useState([])
 
     useEffect(() => {
         
@@ -18,12 +19,28 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
             .then(response => {
                 if(response.data.success) {
                     setVideoDetail(response.data.videoDetail)
+                    console.log(response.data.videoDetail)
                 } else {
                     alert('비디오 정보를 가져오는 데 실패했습니다.')
                 }
             })
 
+        Axios.post('/api/comment/getComments', variable) // 모든 댓글 정보 가져오기
+            .then(response => {
+                if(response.data.success) {
+                    setComments(response.data.Comments)
+                    console.log(response.data.Comments)
+                } else {
+                    alert('댓글 정보를 가져오는 데 실패했습니다.')
+                }   
+            })   
+
     }, [])
+
+    const refreshFunction = (newComment) => {
+        setComments(Comments.concat(newComment))
+    } 
+    // 기존 Comments에 Comment.js와 SingleComment.js에서 받아온 newComment 추가(Concat)
 
     if(VideoDetail.writer) {
 
@@ -49,7 +66,7 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
                         </List.Item>
     
                         {/* Comments */}
-                        <Comment postId={videoId} />
+                        <Comment commentLists={Comments} postId={videoId} refreshFunction={refreshFunction} />
     
                     </div>
                 </Col>

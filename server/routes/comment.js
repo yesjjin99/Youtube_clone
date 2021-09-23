@@ -25,4 +25,15 @@ router.post('/saveComment', (req, res) => {
 
 })
 
+router.post('/getComments', (req, res) => {
+    
+    Comment.find({ "postId": req.body.videoId }) // query
+        .populate('writer')
+        .exec((err, comments) => { // 이 postId에 맞는 모든 comment들의 정보들이 변수 comments에 들어감
+            if(err) return res.status(400).send(err)
+            res.status(200).json({ success: true, comments })
+        })
+
+})
+
 module.exports = router;
