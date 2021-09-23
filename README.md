@@ -146,7 +146,7 @@ Comment.js
 👉🏻 Comment.js를 위한 template 만들기
 👉🏻 handleChange func 만들기 (textarea에 쓴 내용 인식)
 👉🏻 onSubmit func 만들기
-👉🏻 저장된 댓글 데이터를 Parent Component로 업데이트
+👉🏻 저장된 댓글 데이터를 Parent Component로 업데이트 (VideoDetailPage의 Comments State로 업데이트)
 ```
 ```
 SingleComment.js (Props.refreshFunction)
@@ -161,5 +161,6 @@ SingleComment.js (Props.refreshFunction)
 👉🏻 Single Comment를 위한 Template 생성
 👉🏻 Open Reply func와 handleChange func 만들기
 👉🏻 onSubmit func 만들기
+👉🏻 모든 Comment 정보 가져오기
 👉🏻 저장된 댓글을 Parent Component에 업데이트
 ```
