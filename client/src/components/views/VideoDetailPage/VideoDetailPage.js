@@ -4,6 +4,7 @@ import Axios from 'axios'
 import SideVideo from './Sections/SideVideo'
 import Subscribe from './Sections/Subscribe'
 import Comment from './Sections/Comment'
+import LikeDislikes from './Sections/LikeDislikes'
 
 function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function 괄호 안에 props 넣어줘야 함
 
@@ -55,7 +56,8 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
                         <video style={{ width: '100%' }} src={`http://localhost:5000/${VideoDetail.filePath}`} controls />
     
                         <List.Item
-                            actions={[ subscribeButton ]} // props으로 넘겨줌
+                            actions={[ <LikeDislikes video userId={localStorage.getItem('userId')}
+                              videoId={videoId} />, subscribeButton ]} // props으로 넘겨줌
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={VideoDetail.writer.image} />}

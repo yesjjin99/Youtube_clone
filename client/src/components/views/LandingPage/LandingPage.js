@@ -24,7 +24,7 @@ function LandingPage() {
             })
     }, [])
     // useEffect -> DOM이 로드되자마자 무엇을 할 것인지
-    // input 없으면 계속 function 반복 / input 부분 비어있으면 DOM이 업데이트될 때 한 번만 실행
+    // [] -> input 없으면 계속 function 반복 / input 부분 비어있으면 DOM이 업데이트될 때 한 번만 실행
 
     const renderCards = Video.map((video, index) => {
 

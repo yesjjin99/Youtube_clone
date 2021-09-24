@@ -173,3 +173,35 @@ SingleComment.js (Props.refreshFunction)
 👉🏻 Calculate Child Comment Number
 👉🏻 Complete Comment System
 ```
+
+## 12. Like & Dislike Feature
+
+### (1) System
+
+```
+Like Click
+👉🏻 아직 아무것도 클릭되어 있지 않다면 
+    -> 좋아요 1 올리기
+👉🏻 좋아요 버튼이 이미 클릭되어 있다면 
+    -> 좋아요 1 내리기
+👉🏻 싫어요 버튼이 이미 클릭되어 있다면
+    -> 좋아요 1 올리기 & 싫어요 1 내리기
+```
+```
+Dislike Click
+👉🏻 아무것도 클릭되어 있지 않다면
+    -> 싫어요 1 올리기
+👉🏻 싫어요 버튼이 이미 클릭되어 있다면
+    -> 싫어요 1 내리기
+👉🏻 좋아요 버튼이 이미 클릭되어 있다면
+    -> 싫어요 1 올리기 & 좋아요 1 내리기
+```
+
+### (2) Template, Fetch Data
+
+```
+👉🏻 Antd을 이용하여 Like & Dislike Button 만들기
+👉🏻 현재 좋아요, 싫어요에 대한 정보를 DB에서 가져오기(Video, Comment 따로)
+    1. 좋아요, 싫어요 숫자
+    2. 내가 좋아요나 싫어요 중 하나를 이미 눌렀는지
+```
