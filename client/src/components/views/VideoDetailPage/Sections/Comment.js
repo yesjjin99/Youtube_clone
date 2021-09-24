@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
 import SingleComment from './SingleComment';
+import ReplyComment from './ReplyComment';
 
 function Comment(props) {
 
-    const user = useSelector(state => state.user) // Redux에서 State 안에 있는 user 데이터 가져옴
+    const user = useSelector(state => state.user) 
+    // Redux에서 State 안에 있는 user 데이터 가져옴
     const videoId = props.postId
 
     const [commentValue, setcommentValue] = useState("")
@@ -47,9 +49,12 @@ function Comment(props) {
             {/* Coment Lists */}
 
             {props.commentLists && props.commentLists.map((comment, index) => (
-                (!comment.responseTo && 
-                    <SingleComment comment={comment} postId={videoId} refreshFunction={props.refreshFunction} />
-                ) // 첫 번째 depth (댓글로 쓰인 게 아닌 것들)
+                (!comment.responseTo &&
+                    <React.Fragment>
+                        <SingleComment comment={comment} postId={videoId} refreshFunction={props.refreshFunction} />
+                        <ReplyComment parentCommentId={comment._id} postId={videoId} commentLists={props.commentLists} refreshFunction={props.refreshFunction} />
+                    </React.Fragment>
+                )
 
             ))}
 
