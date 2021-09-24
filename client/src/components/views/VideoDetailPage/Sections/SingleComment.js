@@ -17,7 +17,7 @@ function SingleComment(props) {
     }
 
     const onhandleChange = (event) => {
-        setCommentValue(event.currentTarget.CommentValue)
+        setCommentValue(event.currentTarget.value)
     }
 
     const onSubmit = (event) => {
@@ -34,7 +34,8 @@ function SingleComment(props) {
             .then(response => {
                 if(response.data.success) {
                     console.log(response.data.result)
-                    setCommentValue("")
+                    setCommentValue("") // 댓글 입력하고 textarea 빈칸되도록
+                    setOpenReply(false) // 댓글 입력 후 reload -> form 접히도록
                     props.refreshFunction(response.data.result)
                 } else {
                     alert('댓글을 저장하지 못했습니다.')

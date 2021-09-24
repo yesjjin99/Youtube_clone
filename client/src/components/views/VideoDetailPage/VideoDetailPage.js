@@ -23,13 +23,13 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
                 } else {
                     alert('비디오 정보를 가져오는 데 실패했습니다.')
                 }
-            })
+            }) // routes 에서 받아옴
 
         Axios.post('/api/comment/getComments', variable) // 모든 댓글 정보 가져오기
             .then(response => {
                 if(response.data.success) {
-                    setComments(response.data.Comments)
-                    console.log(response.data.Comments)
+                    setComments(response.data.comments)
+                    console.log(response.data.comments)
                 } else {
                     alert('댓글 정보를 가져오는 데 실패했습니다.')
                 }   
@@ -59,7 +59,7 @@ function VideoDetailPage(props) { // props 쓰려면 무조건 메인 function �
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={VideoDetail.writer.image} />}
-                                title={VideoDetail.writer.name}
+                                title={VideoDetail.title}
                                 description={VideoDetail.description}
                             />
     
